@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FriendFaceCDApp: App {
+    @StateObject var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FriendFaceCD()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
